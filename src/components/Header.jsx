@@ -6,20 +6,18 @@ import { NavLink } from "react-router-dom";
 
 const navMenus = [
   { href: "", text: "شرفة" },
-  { href: "tajwid", text: "تجويد" },
-  { href: "nahwu", text: "نجو" },
-  { href: "sorof", text: "صرف" },
+  { href: "quran", text: "قرآن" },
+  { href: "kaidah", text: "قواعد" },
   { href: "doa", text: "دعاء" },
 ];
 
 const Header = () => {
+  const { dark } = useSelector((state) => state.basic);
   return (
     <>
-      <header className="h-16 px-4 lg:px-12 border-b sticky top-0">
-        <div className="flex justify-between items-center h-full gap-6">
-          <div>
-            <Logo />
-          </div>
+      <header className={`z-40 ${dark ? "bg-slate-800" : "bg-white"} h-16 px-4 lg:px-12 border-b sticky top-0`}>
+        <div className="flex justify-between items-center h-full gap-8">
+          <Logo />
           <NavMain />
           <div className="flex gap-3">
             <DarkMode />
@@ -66,7 +64,7 @@ const NavContent = ({ classLink }) => {
 const NavMain = () => {
   return (
     <nav className="hidden sm:block w-full">
-      <div className="flex gap-3">
+      <div className="flex gap-5">
         <NavContent />
       </div>
     </nav>
@@ -91,7 +89,7 @@ const NavCollapse = () => {
 // logo, dark mode
 const Logo = () => {
   return (
-    <a href="/" className="min-w-max block">
+    <a href="/" className="min-w-max block text-lg font-medium">
       <div>لغة تام</div>
     </a>
   );

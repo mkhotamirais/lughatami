@@ -3,6 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   dark: JSON.parse(localStorage.getItem("lughatamiDark")) || false,
   openNav: false,
+  openAside: false,
 };
 
 const basicSlice = createSlice({
@@ -23,8 +24,14 @@ const basicSlice = createSlice({
     removeOpenNav(state) {
       state.openNav = false;
     },
+    toggleOpenAside(state) {
+      state.openAside = !state.openAside;
+    },
+    removeOpenAside(state) {
+      state.openAside = false;
+    },
   },
 });
 
-export const { toggleDark, removeDark, toggleOpenNav, removeOpenNav } = basicSlice.actions;
+export const { toggleDark, removeDark, toggleOpenNav, removeOpenNav, toggleOpenAside, removeOpenAside } = basicSlice.actions;
 export default basicSlice.reducer;
